@@ -4,10 +4,18 @@
   import counties from "../counties";
 
   onMount(() => {
+    function getColor(name) { 
+      return ['#CC444B', '#DA5552', '#DF7373', '#E39695', '#FF8A65', ''][Math.floor(Math.random() * 6)]; 
+    }
+
     const style = (feature) => {
+      const fillColor = getColor(feature.properties.name); 
       return {
         weight: 0.5,
+        opacity: 1, 
         color: "white",
+        fillColor, 
+        fillOpacity: fillColor ? 0.7 : 0.1
       };
     };
 
@@ -27,12 +35,8 @@
 
       map.setMaxBounds(map.getBounds());
 
-      counties.forEach((county) => {
-        fetch(
-          `https://raw.githubusercontent.com/johan/world.geo.json/master/countries/USA/NY/${county}.geo.json`
-        )
-          .then((res) => res.json())
-          .then((data) => L.geoJson(data, { style: style }).addTo(map));
+      Object.keys(counties).forEach((county) => {
+        L.geoJson(counties[county], { style: style }).addTo(map);
       });
     };
     setMap();
