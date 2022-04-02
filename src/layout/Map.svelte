@@ -1,26 +1,66 @@
 <script>
   import { onMount } from "svelte";
+  import Form from "./Form.svelte";
   import L from "leaflet";
-  import counties from "../counties";
+  import {counties, set, increment} from "../counties";
 
-  onMount(() => {
-    function getColor(name) { 
-      return ['#CC444B', '#DA5552', '#DF7373', '#E39695', '#FF8A65', ''][Math.floor(Math.random() * 6)]; 
+  let map; 
+  let maxCases = 0;
+  let maxExposures = 0;
+  let mapCreated = false;
+
+  function handleMessage(event) {
+    const county = event.detail.text;
+    const cases = counties[county].cases;
+
+    if (typeof cases === "number") {
+      increment(county, 'cases');
+    } else {
+      set(county, 'cases', 1);
+    }
+
+    if (counties[county].cases > maxCases) {
+      maxCases = counties[county].cases;
+    }
+
+    init(); 
+  }
+
+  function init() {
+    function getColor(name) {
+      // orange: '#FF8A65'
+      // return ["#4DB6AC", "#E39695", "#DF7373", "#DA5552", "#CC444B", '#FF8A65'][Math.floor(Math.random()*6)]
+      const cases = counties[name].cases;
+      const ratio = cases / maxCases;
+
+      if (typeof cases !== "number") {
+        return "#4DB6AC";
+      } else if (ratio <= 0.25) {
+        return "#E39695";
+      } else if (ratio <= 0.5) {
+        return "#DF7373";
+      } else if (ratio <= 0.75) {
+        return "#DA5552";
+      }
+      return "#CC444B";
     }
 
     const style = (feature) => {
-      const fillColor = getColor(feature.properties.name); 
+      const fillColor = getColor(feature.properties.name);
+      console.log(getColor('Albany'))
       return {
         weight: 0.5,
-        opacity: 1, 
         color: "white",
         fillColor, 
-        fillOpacity: fillColor ? 0.7 : 0.1
+        fillOpacity: 1
       };
     };
-
+    
+    if (!mapCreated) {
+      map = L.map("map").setView([42.579, -76.1], 7);
+    }
     const setMap = () => {
-      let map = L.map("map").setView([42.579, -76.1], 7);
+      map.invalidateSize(true);
       L.tileLayer(
         "https://{s}.basemaps.cartocdn.com/rastertiles/dark_nolabels/{z}/{x}/{y}.png",
         {
@@ -40,7 +80,15 @@
       });
     };
     setMap();
+  }
+
+  onMount(() => {
+    init();
+    mapCreated = true;
   });
 </script>
 
 <div style="height: 100vh; background: #262626;" id="map" />
+<section class="bg-dark px-md-5 py-5 container-fluid">
+  <Form on:message={handleMessage} />
+</section>

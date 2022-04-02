@@ -1,6 +1,7 @@
 <script lang="ts">
   import { onMount } from "svelte";
   import Navbar from "./layout/Navbar.svelte";
+  import Form from "./layout/Form.svelte";
   import Map from "./layout/Map.svelte";
 
   const e = {
@@ -19,18 +20,11 @@
 </script>
 
 <main>
-  <Navbar/>
+  <Navbar />
 
-  <!-- <section class="bg-dark px-md-5 py-5 text-light text-center container-fluid">
+  <section class="bg-dark px-md-5 py-5 text-light text-center container-fluid">
     <h1>text here that is epicly cool</h1>
-    {#await promise}
-      <div class="spinner-grow" role="status" />
-    {:then data}
-      <h1>{data}</h1>
-    {:catch err}
-      <h1>{err}</h1>
-    {/await}
-  </section> -->
+  </section>
 
-  <Map/>
+  <Map />
 </main>

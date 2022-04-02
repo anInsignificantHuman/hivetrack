@@ -1,0 +1,65 @@
+<script>
+  import { createEventDispatcher } from "svelte";
+  import {counties} from "../counties";
+
+  const dispatch = createEventDispatcher(); 
+
+  let residingCounty;
+  let countiesExposed = [];
+  const countyList = Object.keys(counties).sort();
+
+  function handleSubmit(event) {
+    dispatch('message', {text: residingCounty})
+  }
+</script>
+
+<div id="main">
+  <div class="card w-40 bg-dark text-light" style="width: 24rem;">
+    <div class="card-body">
+      <h4 class="card-title">Measles Reporter</h4>
+
+      <div class="alert alert-success" role="alert">
+        <h6 class="card-subtitle color-white">
+          Securely connected to HIVE infrastructure.
+        </h6>
+      </div>
+
+      <form on:submit|preventDefault={handleSubmit}>
+        <div class="mb-3">
+          <label for="countyOfResidence" class="form-label"
+            >County of Residence</label
+          >
+
+          <select
+            bind:value={residingCounty}
+            id="countyOfResidence"
+            class="form-select county-select"
+          >
+            {#each countyList as county}
+              <option value={county}>{county} County</option>
+            {/each}
+          </select>
+        </div>
+
+        <div class="mb-3">
+          <label for="exposedCounties" class="form-label"
+            >Potentially Exposed Counties</label
+          >
+
+          <select
+            bind:value={countiesExposed}
+            id="exposedCounties"
+            class="form-select county-select"
+            multiple
+          >
+            {#each countyList as county}
+              <option value={county}>{county} County</option>
+            {/each}
+          </select>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+    </div>
+  </div>
+</div>
