@@ -10,7 +10,7 @@
   let mapCreated = false;
 
   function handleMessage(event) {
-    const county = event.detail.text;
+    const residingCounty = event.detail.residingCounty;
     const cases = counties[county].cases;
 
     if (typeof cases === "number") {
@@ -19,7 +19,7 @@
       set(county, 'cases', 1);
     }
 
-    if (counties[county].cases > maxCases) {
+    if (counties[rwesiounty].cases > maxCases) {
       maxCases = counties[county].cases;
     }
 

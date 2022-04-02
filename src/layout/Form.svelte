@@ -9,7 +9,7 @@
   const countyList = Object.keys(counties).sort();
 
   function handleSubmit(event) {
-    dispatch('message', {text: residingCounty})
+    dispatch('message', {residingCounty, countiesExposed})
   }
 </script>
 
