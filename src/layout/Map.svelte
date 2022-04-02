@@ -43,9 +43,39 @@
 		return "#CC444B";
 	}
 
+<<<<<<< HEAD
 	function init() {
 		const style = (feature) => {
 			const fillColor = getColor(feature.properties.name);
+=======
+    function style(feature) {
+      const fillColor = getColor(feature.properties.name);
+      console.log(getColor('Albany'))
+      return {
+        weight: 0.5,
+        color: "white",
+        fillColor, 
+        fillOpacity: 1
+      };
+    };
+    
+    if (!mapCreated) {
+      map = L.map("map").setView([42.579, -76.1], 7);
+    }
+    function setMap() {
+      map.invalidateSize(true);
+      L.tileLayer(
+        "https://{s}.basemaps.cartocdn.com/rastertiles/dark_nolabels/{z}/{x}/{y}.png",
+        {
+          attribution:
+            'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Imagery Â© <a href="https://www.mapbox.com/">Mapbox</a>',
+          minZoom: 7,
+          maxZoom: 12,
+          tileSize: 512,
+          zoomOffset: -1,
+        }
+      ).addTo(map);
+>>>>>>> decb6c83347c22dfb261245aab6355f5f8217a99
 
 			return {
 				weight: 0.5,
@@ -55,9 +85,18 @@
 			};
 		};
 
+<<<<<<< HEAD
 		if (!mapCreated) {
 			map = L.map("map").setView([42.579, -76.1], 7);
 		}
+=======
+      Object.keys(counties).forEach((county) => {
+        L.geoJson(counties[county], { style }).addTo(map);
+      });
+    };
+    setMap();
+  }
+>>>>>>> decb6c83347c22dfb261245aab6355f5f8217a99
 
 		const setMap = () => {
 			map.setMaxBounds(map.getBounds());
