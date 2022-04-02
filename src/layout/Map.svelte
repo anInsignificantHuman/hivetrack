@@ -2,14 +2,16 @@
   import { onMount } from "svelte";
   import Form from "./Form.svelte";
   import L from "leaflet";
+  import colorGradient from "javascript-color-gradient";
   import { counties, set, increment } from "../counties";
 
   let map;
-  let maxCases = 0;
-  let maxExposures = 0;
+  let maxCases = 1;
+  let maxExposures = 1;
   let mapCreated = false;
+  const ACCURACY = 100;
 
-  function handleMessage(event) {
+  function handleCase(event) {
     const county = event.detail.text;
     const cases = counties[county].cases;
     if (typeof cases === "number") {
@@ -20,33 +22,57 @@
     if (counties[county].cases > maxCases) {
       maxCases = counties[county].cases;
     }
+  }
+
+  function handleExposures(event) {
+    const countyList = event.detail.text;
+    countyList.forEach((county) => {
+      const exposures = counties[county].exposures;
+      if (typeof exposures === "number") {
+        increment(county, "exposures");
+      } else {
+        set(county, "exposures", 1);
+      }
+      if (counties[county].exposures > maxExposures) {
+        maxExposures = counties[county].exposures;
+      }
+    });
+
     init();
   }
+
   function getColor(name) {
     // return ["#4DB6AC", "#E39695", "#DF7373", "#DA5552", "#CC444B", '#FF8A65'][Math.floor(Math.random()*6)]
-    const cases = counties[name].cases;
+    const cases = counties[name].cases || 0;
     const ratio = cases / maxCases;
-    if (typeof cases !== "number") {
-      return "#4DB6AC";
-    } else if (ratio <= 0.25) {
-      return "#E39695";
-    } else if (ratio <= 0.5) {
-      return "#DF7373";
-    } else if (ratio <= 0.75) {
-      return "#DA5552";
+
+    if (cases === 0) {
+      return "#ffffff";
     }
-    return "#CC444B";
+
+    colorGradient.setGradient("#ffb5b5", "#9e0000");
+    colorGradient.setMidpoint(ACCURACY);
+    colorGradient.getArray();
+
+    const unit = 1 / ACCURACY;
+
+    console.log(ratio * ACCURACY)
+
+    return colorGradient.getColor(
+      Math.trunc(Math.round(ratio * ACCURACY))
+    );
   }
+
   function init() {
-    const style = (feature) => {
+    function style(feature) {
       const fillColor = getColor(feature.properties.name);
       return {
         weight: 0.5,
         color: "white",
         fillColor,
-        fillOpacity: 0.6,
+        fillOpacity: fillColor === "#ffffff" ? 0.4 : 1,
       };
-    };
+    }
 
     if (!mapCreated) {
       map = L.map("map").setView([42.579, -76.1], 7);
@@ -87,7 +113,7 @@
   </div>
   <div class="col-4 p-0">
     <section class="bg-dark px-md-5 py-5 container-fluid">
-      <Form on:message={handleMessage} />
+      <Form on:case={handleCase} on:exposures={handleExposures} />
     </section>
   </div>
 </div>
