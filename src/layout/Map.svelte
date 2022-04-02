@@ -45,7 +45,7 @@
       return "#CC444B";
     }
 
-    const style = (feature) => {
+    function style(feature) {
       const fillColor = getColor(feature.properties.name);
       console.log(getColor('Albany'))
       return {
@@ -59,7 +59,7 @@
     if (!mapCreated) {
       map = L.map("map").setView([42.579, -76.1], 7);
     }
-    const setMap = () => {
+    function setMap() {
       map.invalidateSize(true);
       L.tileLayer(
         "https://{s}.basemaps.cartocdn.com/rastertiles/dark_nolabels/{z}/{x}/{y}.png",
@@ -76,7 +76,7 @@
       map.setMaxBounds(map.getBounds());
 
       Object.keys(counties).forEach((county) => {
-        L.geoJson(counties[county], { style: style }).addTo(map);
+        L.geoJson(counties[county], { style }).addTo(map);
       });
     };
     setMap();
