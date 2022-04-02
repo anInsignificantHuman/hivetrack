@@ -2561,10 +2561,10 @@ export const counties = {
   },
 };
 
-export function set(county, attr, val) { 
+export function set(county: string, attr: string, val: number) { 
   counties[county][attr] = val; 
 }
 
-export function increment(county, attr) { 
+export function increment(county: string, attr: string) { 
   counties[county][attr] += 1; 
 }

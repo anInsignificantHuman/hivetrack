@@ -2,20 +2,25 @@
   import { createEventDispatcher } from "svelte";
   import {counties} from "../counties";
 
-  const dispatch = createEventDispatcher(); 
-
+  const dispatch = createEventDispatcher();
   let residingCounty;
   let countiesExposed = [];
   const countyList = Object.keys(counties).sort();
-
+  
   function handleSubmit(event) {
-    dispatch('message', {residingCounty, countiesExposed})
+    dispatch('message', {text: residingCounty})
   }
 </script>
 
-<div id="main">
-  <div class="card w-40 bg-dark text-light" style="width: 24rem;">
-    <div class="card-body">
+<style>
+  .borderless {
+    border: none;
+  }
+</style>
+
+<div id="form">
+  <div class="card w-40 bg-dark text-light borde">
+    <div class="card-body borderless">
       <h4 class="card-title">Measles Reporter</h4>
 
       <div class="alert alert-success" role="alert">

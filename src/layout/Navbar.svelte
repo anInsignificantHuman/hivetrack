@@ -52,3 +52,9 @@
     </div>
   </div>
 </nav>
+
+<style>
+  nav {
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+  }
+</style>
