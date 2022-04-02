@@ -1,3 +1,9 @@
+<style>
+  nav {
+      box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+  }
+</style>
+
 <nav class="navbar navbar-expand-md navbar-dark bg-dark py-3">
   <div class="container-fluid">
     <a href="/" class="navbar-brand ms-md-5 me-3">HIVETrack</a>
