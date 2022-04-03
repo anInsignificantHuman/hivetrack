@@ -1,15 +1,17 @@
 <script>
   import { createEventDispatcher } from "svelte";
-  import { counties } from "../counties";
+  import { COUNTIES } from "../counties";
 
   const dispatch = createEventDispatcher();
   let residingCounty;
   let countiesExposed = [];
-  const countyList = Object.keys(counties).sort();
+  const countyList = Object.keys(COUNTIES).sort();
 
   function handleSubmit(event) {
     dispatch("case", { text: residingCounty });
-    dispatch("exposures", { text: countiesExposed });
+    dispatch("exposures", {
+      text: countiesExposed.filter((item) => item !== residingCounty),
+    });
   }
 </script>
 

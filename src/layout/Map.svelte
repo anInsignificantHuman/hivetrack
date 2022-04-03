@@ -3,80 +3,73 @@
   import Form from "./Form.svelte";
   import L from "leaflet";
   import colorGradient from "javascript-color-gradient";
-  import { counties, set, increment } from "../counties";
+  import { COUNTIES, increment } from "../counties";
+  import { COLORS_ARRAY } from "../colors";
+
+  let counties = COUNTIES;
+
+  Object.keys(counties).forEach((county) => {
+    counties[county].cases = 0;
+    counties[county].exposures = 0;
+  });
 
   let map;
-  let maxCases = 1;
-  let maxExposures = 1;
+  $: maxCases = Math.max(...Object.values(counties).map((e) => e.cases));
+  $: maxExposures = Math.max(
+    ...Object.values(counties).map((e) => e.exposures)
+  );
   let mapCreated = false;
-  const ACCURACY = 100;
+  $: ACCURACY_CASES = maxCases + 1;
+  $: ACCURACY_EXPOSURES = maxExposures + 1;
+
+  // Object.keys(counties).forEach((county) => {
+  //   counties[county].cases = Math.floor(Math.random() * 1000);
+  // });
 
   function handleCase(event) {
     const county = event.detail.text;
-    const cases = counties[county].cases;
-    if (typeof cases === "number") {
-      increment(county, "cases");
-    } else {
-      set(county, "cases", 1);
-    }
-    if (counties[county].cases > maxCases) {
-      maxCases = counties[county].cases;
-    }
+    increment(county, "cases");
   }
 
   function handleExposures(event) {
     const countyList = event.detail.text;
     countyList.forEach((county) => {
-      const exposures = counties[county].exposures;
-      if (typeof exposures === "number") {
-        increment(county, "exposures");
-      } else {
-        set(county, "exposures", 1);
-      }
-      if (counties[county].exposures > maxExposures) {
-        maxExposures = counties[county].exposures;
-      }
+      increment(county, "exposures");
     });
-
-    init();
+    counties = counties;
+    refresh();
   }
 
   function getColor(name) {
-    // return ["#4DB6AC", "#E39695", "#DF7373", "#DA5552", "#CC444B", '#FF8A65'][Math.floor(Math.random()*6)]
-    const cases = counties[name].cases || 0;
-    const ratio = cases / maxCases;
+    const { cases, exposures } = counties[name];
+    const ACCURACY = cases === 0 ? ACCURACY_EXPOSURES : ACCURACY_CASES;
 
-    if (cases === 0) {
-      return "#ffffff";
-    }
+    if (cases === 0 && exposures === 0) return "white";
 
-    colorGradient.setGradient("#ffb5b5", "#9e0000");
+    const ratio = cases === 0 ? exposures / maxExposures : cases / maxCases;
+
+    colorGradient.setGradient(...COLORS_ARRAY[cases === 0 ? "ORANGE" : "RED"]);
     colorGradient.setMidpoint(ACCURACY);
     colorGradient.getArray();
 
-    const unit = 1 / ACCURACY;
-
-    console.log(ratio * ACCURACY)
-
-    return colorGradient.getColor(
-      Math.trunc(Math.round(ratio * ACCURACY))
-    );
+    return colorGradient.getColor(Math.round(ratio * ACCURACY));
   }
 
-  function init() {
+  function refresh() {
     function style(feature) {
       const fillColor = getColor(feature.properties.name);
       return {
         weight: 0.5,
         color: "white",
         fillColor,
-        fillOpacity: fillColor === "#ffffff" ? 0.4 : 1,
+        fillOpacity: fillColor === "white" ? 0.4 : 1,
       };
     }
 
     if (!mapCreated) {
       map = L.map("map").setView([42.579, -76.1], 7);
     }
+
     function setMap() {
       map.setMaxBounds(map.getBounds());
       map.eachLayer((layer) => {
@@ -96,13 +89,21 @@
       ).addTo(map);
 
       Object.keys(counties).forEach((county) => {
-        L.geoJson(counties[county], { style }).addTo(map);
+        L.geoJson(counties[county], { style })
+          .bindTooltip(
+            `${county}: ${
+              counties[county].cases || counties[county].exposures
+            } ${counties[county].cases ? " case(s)" : " exposure(s)"}`
+          )
+          .addTo(map);
       });
     }
+
     setMap();
   }
+
   onMount(() => {
-    init();
+    refresh();
     mapCreated = true;
   });
 </script>
@@ -119,9 +120,6 @@
 </div>
 
 <style>
-  body {
-    overflow: hidden;
-  }
   #map {
     background: #262626;
     height: 95vh;

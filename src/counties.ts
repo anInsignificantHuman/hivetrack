@@ -1,7 +1,6 @@
-export const counties = {
+export const COUNTIES = {
   Broome: {
     type: "FeatureCollection",
-    
     properties: {
       kind: "state",
       state: "NY",
@@ -40,10 +39,11 @@ export const counties = {
         },
       },
     ],
+    cases: 0,
+    exposures: 0,
   },
   Albany: {
     type: "FeatureCollection",
-    
     properties: {
       kind: "state",
       state: "NY",
@@ -76,10 +76,11 @@ export const counties = {
         },
       },
     ],
+    cases: 0,
+    exposures: 0,
   },
   Allegany: {
     type: "FeatureCollection",
-    
     properties: {
       kind: "state",
       state: "NY",
@@ -112,10 +113,11 @@ export const counties = {
         },
       },
     ],
+    cases: 0,
+    exposures: 0,
   },
   Hamilton: {
     type: "FeatureCollection",
-    
     properties: {
       kind: "state",
       state: "NY",
@@ -157,10 +159,11 @@ export const counties = {
         },
       },
     ],
+    cases: 0,
+    exposures: 0,
   },
   Cattaraugus: {
     type: "FeatureCollection",
-    
     properties: {
       kind: "state",
       state: "NY",
@@ -192,10 +195,11 @@ export const counties = {
         },
       },
     ],
+    cases: 0,
+    exposures: 0,
   },
   Lewis: {
     type: "FeatureCollection",
-    
     properties: {
       kind: "state",
       state: "NY",
@@ -235,10 +239,11 @@ export const counties = {
         },
       },
     ],
+    cases: 0,
+    exposures: 0,
   },
   Columbia: {
     type: "FeatureCollection",
-    
     properties: {
       kind: "state",
       state: "NY",
@@ -272,10 +277,11 @@ export const counties = {
         },
       },
     ],
+    cases: 0,
+    exposures: 0,
   },
   Delaware: {
     type: "FeatureCollection",
-    
     properties: {
       kind: "state",
       state: "NY",
@@ -317,10 +323,11 @@ export const counties = {
         },
       },
     ],
+    cases: 0,
+    exposures: 0,
   },
   Bronx: {
     type: "FeatureCollection",
-    
     properties: {
       kind: "state",
       state: "NY",
@@ -354,10 +361,11 @@ export const counties = {
         },
       },
     ],
+    cases: 0,
+    exposures: 0,
   },
   Otsego: {
     type: "FeatureCollection",
-    
     properties: {
       kind: "state",
       state: "NY",
@@ -403,10 +411,11 @@ export const counties = {
         },
       },
     ],
+    cases: 0,
+    exposures: 0,
   },
   Herkimer: {
     type: "FeatureCollection",
-    
     properties: {
       kind: "state",
       state: "NY",
@@ -453,10 +462,11 @@ export const counties = {
         },
       },
     ],
+    cases: 0,
+    exposures: 0,
   },
   Cayuga: {
     type: "FeatureCollection",
-    
     properties: {
       kind: "state",
       state: "NY",
@@ -495,10 +505,11 @@ export const counties = {
         },
       },
     ],
+    cases: 0,
+    exposures: 0,
   },
   Chautauqua: {
     type: "FeatureCollection",
-    
     properties: {
       kind: "state",
       state: "NY",
@@ -530,10 +541,11 @@ export const counties = {
         },
       },
     ],
+    cases: 0,
+    exposures: 0,
   },
   Kings: {
     type: "FeatureCollection",
-    
     properties: {
       kind: "state",
       state: "NY",
@@ -567,10 +579,11 @@ export const counties = {
         },
       },
     ],
+    cases: 0,
+    exposures: 0,
   },
   Franklin: {
     type: "FeatureCollection",
-    
     properties: {
       kind: "state",
       state: "NY",
@@ -603,10 +616,11 @@ export const counties = {
         },
       },
     ],
+    cases: 0,
+    exposures: 0,
   },
   Montgomery: {
     type: "FeatureCollection",
-    
     properties: {
       kind: "state",
       state: "NY",
@@ -640,10 +654,11 @@ export const counties = {
         },
       },
     ],
+    cases: 0,
+    exposures: 0,
   },
   Cortland: {
     type: "FeatureCollection",
-    
     properties: {
       kind: "state",
       state: "NY",
@@ -675,10 +690,11 @@ export const counties = {
         },
       },
     ],
+    cases: 0,
+    exposures: 0,
   },
   Chemung: {
     type: "FeatureCollection",
-    
     properties: {
       kind: "state",
       state: "NY",
@@ -713,10 +729,11 @@ export const counties = {
         },
       },
     ],
+    cases: 0,
+    exposures: 0,
   },
   Genesee: {
     type: "FeatureCollection",
-    
     properties: {
       kind: "state",
       state: "NY",
@@ -750,10 +767,11 @@ export const counties = {
         },
       },
     ],
+    cases: 0,
+    exposures: 0,
   },
   Essex: {
     type: "FeatureCollection",
-    
     properties: {
       kind: "state",
       state: "NY",
@@ -800,10 +818,11 @@ export const counties = {
         },
       },
     ],
+    cases: 0,
+    exposures: 0,
   },
   Erie: {
     type: "FeatureCollection",
-    
     properties: {
       kind: "state",
       state: "NY",
@@ -849,10 +868,11 @@ export const counties = {
         },
       },
     ],
+    cases: 0,
+    exposures: 0,
   },
   Livingston: {
     type: "FeatureCollection",
-    
     properties: {
       kind: "state",
       state: "NY",
@@ -899,10 +919,11 @@ export const counties = {
         },
       },
     ],
+    cases: 0,
+    exposures: 0,
   },
   Monroe: {
     type: "FeatureCollection",
-    
     properties: {
       kind: "state",
       state: "NY",
@@ -943,10 +964,11 @@ export const counties = {
         },
       },
     ],
+    cases: 0,
+    exposures: 0,
   },
   Orleans: {
     type: "FeatureCollection",
-    
     properties: {
       kind: "state",
       state: "NY",
@@ -974,10 +996,11 @@ export const counties = {
         },
       },
     ],
+    cases: 0,
+    exposures: 0,
   },
   Chenango: {
     type: "FeatureCollection",
-    
     properties: {
       kind: "state",
       state: "NY",
@@ -1013,10 +1036,11 @@ export const counties = {
         },
       },
     ],
+    cases: 0,
+    exposures: 0,
   },
   Orange: {
     type: "FeatureCollection",
-    
     properties: {
       kind: "state",
       state: "NY",
@@ -1057,10 +1081,11 @@ export const counties = {
         },
       },
     ],
+    cases: 0,
+    exposures: 0,
   },
   Schenectady: {
     type: "FeatureCollection",
-    
     properties: {
       kind: "state",
       state: "NY",
@@ -1095,10 +1120,11 @@ export const counties = {
         },
       },
     ],
+    cases: 0,
+    exposures: 0,
   },
   Fulton: {
     type: "FeatureCollection",
-    
     properties: {
       kind: "state",
       state: "NY",
@@ -1132,10 +1158,11 @@ export const counties = {
         },
       },
     ],
+    cases: 0,
+    exposures: 0,
   },
   Putnam: {
     type: "FeatureCollection",
-    
     properties: {
       kind: "state",
       state: "NY",
@@ -1167,10 +1194,11 @@ export const counties = {
         },
       },
     ],
+    cases: 0,
+    exposures: 0,
   },
   Richmond: {
     type: "FeatureCollection",
-    
     properties: {
       kind: "state",
       state: "NY",
@@ -1198,10 +1226,11 @@ export const counties = {
         },
       },
     ],
+    cases: 0,
+    exposures: 0,
   },
   Jefferson: {
     type: "FeatureCollection",
-    
     properties: {
       kind: "state",
       state: "NY",
@@ -1253,10 +1282,11 @@ export const counties = {
         },
       },
     ],
+    cases: 0,
+    exposures: 0,
   },
   Niagara: {
     type: "FeatureCollection",
-    
     properties: {
       kind: "state",
       state: "NY",
@@ -1293,10 +1323,11 @@ export const counties = {
         },
       },
     ],
+    cases: 0,
+    exposures: 0,
   },
   Clinton: {
     type: "FeatureCollection",
-    
     properties: {
       kind: "state",
       state: "NY",
@@ -1332,10 +1363,11 @@ export const counties = {
         },
       },
     ],
+    cases: 0,
+    exposures: 0,
   },
   Ontario: {
     type: "FeatureCollection",
-    
     properties: {
       kind: "state",
       state: "NY",
@@ -1375,10 +1407,11 @@ export const counties = {
         },
       },
     ],
+    cases: 0,
+    exposures: 0,
   },
   Oswego: {
     type: "FeatureCollection",
-    
     properties: {
       kind: "state",
       state: "NY",
@@ -1426,10 +1459,11 @@ export const counties = {
         },
       },
     ],
+    cases: 0,
+    exposures: 0,
   },
   Greene: {
     type: "FeatureCollection",
-    
     properties: {
       kind: "state",
       state: "NY",
@@ -1466,10 +1500,11 @@ export const counties = {
         },
       },
     ],
+    cases: 0,
+    exposures: 0,
   },
   Madison: {
     type: "FeatureCollection",
-    
     properties: {
       kind: "state",
       state: "NY",
@@ -1511,10 +1546,11 @@ export const counties = {
         },
       },
     ],
+    cases: 0,
+    exposures: 0,
   },
   Rockland: {
     type: "FeatureCollection",
-    
     properties: {
       kind: "state",
       state: "NY",
@@ -1546,10 +1582,11 @@ export const counties = {
         },
       },
     ],
+    cases: 0,
+    exposures: 0,
   },
   Rensselaer: {
     type: "FeatureCollection",
-    
     properties: {
       kind: "state",
       state: "NY",
@@ -1584,10 +1621,11 @@ export const counties = {
         },
       },
     ],
+    cases: 0,
+    exposures: 0,
   },
   Onondaga: {
     type: "FeatureCollection",
-    
     properties: {
       kind: "state",
       state: "NY",
@@ -1631,10 +1669,11 @@ export const counties = {
         },
       },
     ],
+    cases: 0,
+    exposures: 0,
   },
   Suffolk: {
     type: "FeatureCollection",
-    
     properties: {
       kind: "state",
       state: "NY",
@@ -1687,10 +1726,11 @@ export const counties = {
         },
       },
     ],
+    cases: 0,
+    exposures: 0,
   },
   Queens: {
     type: "FeatureCollection",
-    
     properties: {
       kind: "state",
       state: "NY",
@@ -1731,10 +1771,11 @@ export const counties = {
         },
       },
     ],
+    cases: 0,
+    exposures: 0,
   },
   Nassau: {
     type: "FeatureCollection",
-    
     properties: {
       kind: "state",
       state: "NY",
@@ -1770,10 +1811,11 @@ export const counties = {
         },
       },
     ],
+    cases: 0,
+    exposures: 0,
   },
   Sullivan: {
     type: "FeatureCollection",
-    
     properties: {
       kind: "state",
       state: "NY",
@@ -1813,10 +1855,11 @@ export const counties = {
         },
       },
     ],
+    cases: 0,
+    exposures: 0,
   },
   Seneca: {
     type: "FeatureCollection",
-    
     properties: {
       kind: "state",
       state: "NY",
@@ -1850,10 +1893,11 @@ export const counties = {
         },
       },
     ],
+    cases: 0,
+    exposures: 0,
   },
   Steuben: {
     type: "FeatureCollection",
-    
     properties: {
       kind: "state",
       state: "NY",
@@ -1892,10 +1936,11 @@ export const counties = {
         },
       },
     ],
+    cases: 0,
+    exposures: 0,
   },
   Oneida: {
     type: "FeatureCollection",
-    
     properties: {
       kind: "state",
       state: "NY",
@@ -1939,10 +1984,11 @@ export const counties = {
         },
       },
     ],
+    cases: 0,
+    exposures: 0,
   },
   Ulster: {
     type: "FeatureCollection",
-    
     properties: {
       kind: "state",
       state: "NY",
@@ -1986,10 +2032,11 @@ export const counties = {
         },
       },
     ],
+    cases: 0,
+    exposures: 0,
   },
   Schoharie: {
     type: "FeatureCollection",
-    
     properties: {
       kind: "state",
       state: "NY",
@@ -2030,10 +2077,11 @@ export const counties = {
         },
       },
     ],
+    cases: 0,
+    exposures: 0,
   },
   Wyoming: {
     type: "FeatureCollection",
-    
     properties: {
       kind: "state",
       state: "NY",
@@ -2071,10 +2119,11 @@ export const counties = {
         },
       },
     ],
+    cases: 0,
+    exposures: 0,
   },
   Wayne: {
     type: "FeatureCollection",
-    
     properties: {
       kind: "state",
       state: "NY",
@@ -2106,10 +2155,11 @@ export const counties = {
         },
       },
     ],
+    cases: 0,
+    exposures: 0,
   },
   Dutchess: {
     type: "FeatureCollection",
-    
     properties: {
       kind: "state",
       state: "NY",
@@ -2146,10 +2196,11 @@ export const counties = {
         },
       },
     ],
+    cases: 0,
+    exposures: 0,
   },
   "New York": {
     type: "FeatureCollection",
-    
     properties: {
       kind: "state",
       state: "NY",
@@ -2180,10 +2231,11 @@ export const counties = {
         },
       },
     ],
+    cases: 0,
+    exposures: 0,
   },
   Tioga: {
     type: "FeatureCollection",
-    
     properties: {
       kind: "state",
       state: "NY",
@@ -2221,10 +2273,11 @@ export const counties = {
         },
       },
     ],
+    cases: 0,
+    exposures: 0,
   },
   Warren: {
     type: "FeatureCollection",
-    
     properties: {
       kind: "state",
       state: "NY",
@@ -2265,10 +2318,11 @@ export const counties = {
         },
       },
     ],
+    cases: 0,
+    exposures: 0,
   },
   Yates: {
     type: "FeatureCollection",
-    
     properties: {
       kind: "state",
       state: "NY",
@@ -2303,10 +2357,11 @@ export const counties = {
         },
       },
     ],
+    cases: 0,
+    exposures: 0,
   },
   Westchester: {
     type: "FeatureCollection",
-    
     properties: {
       kind: "state",
       state: "NY",
@@ -2343,10 +2398,11 @@ export const counties = {
         },
       },
     ],
+    cases: 0,
+    exposures: 0,
   },
   Tompkins: {
     type: "FeatureCollection",
-    
     properties: {
       kind: "state",
       state: "NY",
@@ -2384,10 +2440,11 @@ export const counties = {
         },
       },
     ],
+    cases: 0,
+    exposures: 0,
   },
   Washington: {
     type: "FeatureCollection",
-    
     properties: {
       kind: "state",
       state: "NY",
@@ -2430,10 +2487,11 @@ export const counties = {
         },
       },
     ],
+    cases: 0,
+    exposures: 0,
   },
   Saratoga: {
     type: "FeatureCollection",
-    
     properties: {
       kind: "state",
       state: "NY",
@@ -2478,10 +2536,11 @@ export const counties = {
         },
       },
     ],
+    cases: 0,
+    exposures: 0,
   },
   Schuyler: {
     type: "FeatureCollection",
-    
     properties: {
       kind: "state",
       state: "NY",
@@ -2518,10 +2577,11 @@ export const counties = {
         },
       },
     ],
+    cases: 0,
+    exposures: 0,
   },
   "St. Lawrence": {
     type: "FeatureCollection",
-    
     properties: {
       kind: "state",
       state: "NY",
@@ -2558,13 +2618,11 @@ export const counties = {
         },
       },
     ],
+    cases: 0,
+    exposures: 0,
   },
 };
 
-export function set(county: string, attr: string, val: number) { 
-  counties[county][attr] = val; 
-}
-
-export function increment(county: string, attr: string) { 
-  counties[county][attr] += 1; 
+export function increment(county: string, attribute: "cases" | "exposures") {
+  COUNTIES[county][attribute]++;
 }
