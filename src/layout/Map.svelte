@@ -18,13 +18,10 @@
   $: maxExposures = Math.max(
     ...Object.values(counties).map((e) => e.exposures)
   );
+
   let mapCreated = false;
   $: ACCURACY_CASES = maxCases + 1;
   $: ACCURACY_EXPOSURES = maxExposures + 1;
-
-  // Object.keys(counties).forEach((county) => {
-  //   counties[county].cases = Math.floor(Math.random() * 1000);
-  // });
 
   function handleCase(event) {
     const county = event.detail.text;
@@ -89,11 +86,15 @@
       ).addTo(map);
 
       Object.keys(counties).forEach((county) => {
+        const caseText = counties[county].cases === 1 ? " case" : " cases";
+        const exposureText =
+          counties[county].exposures === 1 ? " exposure" : " exposures";
+
         L.geoJson(counties[county], { style })
           .bindTooltip(
             `${county}: ${
               counties[county].cases || counties[county].exposures
-            } ${counties[county].cases ? " case(s)" : " exposure(s)"}`
+            } ${counties[county].cases ? caseText : exposureText}`
           )
           .addTo(map);
       });

@@ -16,7 +16,7 @@
 </script>
 
 <div id="form">
-  <div class="card w-40 bg-dark text-light borde">
+  <div class="card w-40 bg-dark text-light">
     <div class="card-body borderless">
       <h4 class="card-title">Measles Reporter</h4>
 

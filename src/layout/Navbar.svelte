@@ -14,7 +14,7 @@
     <div class="collapse navbar-collapse" id="menu">
       <ul class="navbar-nav d-md-flex d-none">
         <li class="nav-item">
-          <a href="/" class="nav-link"></a>
+          <a href="/" class="nav-link" />
         </li>
       </ul>
     </div>
