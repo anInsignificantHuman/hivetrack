@@ -1,5 +1,6 @@
 <script>
   import { onMount } from "svelte";
+  import Carousel from "./Carousel.svelte";
   import Form from "./Form.svelte";
   import L from "leaflet";
   import colorGradient from "javascript-color-gradient";
@@ -113,9 +114,10 @@
   <div class="col-8 p-0">
     <div id="map" />
   </div>
-  <div class="col-4 p-0">
+  <div class="col-4 p-0" id="sidebar">
     <section class="bg-dark px-md-5 py-5 container-fluid">
       <Form on:case={handleCase} on:exposures={handleExposures} />
+      <Carousel />
     </section>
   </div>
 </div>
@@ -124,5 +126,10 @@
   #map {
     background: #262626;
     height: 95vh;
+  }
+
+  #sidebar {
+    height: 95vh;
+    overflow-y:auto
   }
 </style>
