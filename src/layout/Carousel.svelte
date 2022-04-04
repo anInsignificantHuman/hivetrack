@@ -40,10 +40,10 @@
 </script>
 
 <div id="carousel" class="carousel slide" data-bs-ride="carousel">
-  <div class="carousel-inner container">
+  <div class="carousel-inner">
     {#each items as item, idx}
       <div
-        class="carousel-item {idx === 0
+        class="container carousel-item {idx === 0
           ? 'active'
           : ''} card w-40 bg-dark text-light"
         data-bs-interval="10000"
