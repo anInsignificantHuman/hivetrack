@@ -1,4 +1,5 @@
 <script>
+  // [title, body, color, icon]
   const items = [
     [
       "What is Measles?",
@@ -39,7 +40,7 @@
   ];
 </script>
 
-<div id="carousel" class="carousel slide" data-bs-ride="carousel">
+<div id="carousel" class="carousel slide child" data-bs-ride="carousel">
   <div class="carousel-inner">
     {#each items as item, idx}
       <div
@@ -48,7 +49,7 @@
           : ''} card w-40 bg-dark text-light"
         data-bs-interval="10000"
       >
-        <div class="card-body borderless text-center">
+        <div class="card-body borderless">
           <h4 class="card-title">{item[0]}</h4>
           <p class="card-text">
             <br />
@@ -60,11 +61,25 @@
         </div>
       </div>
     {/each}
+    <button
+      class="carousel-control-next"
+      type="button"
+      data-bs-target="#carousel"
+      data-bs-slide="next"
+    >
+      <i class="fa-solid fa-angle-right" />
+    </button>
   </div>
 </div>
 
 <style>
-  .borderless {
-    border: none;
+  #carousel {
+    margin-top: 20px;
+    width: 100%;
+    min-width: 100%;
+  }
+
+  .carousel-inner {
+    
   }
 </style>

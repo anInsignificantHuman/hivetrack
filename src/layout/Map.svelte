@@ -130,6 +130,7 @@
 
   #sidebar {
     height: 95vh;
-    overflow-y:auto
+    overflow-y: auto;
+    display: inline-block;
   }
 </style>
